@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta property="og:title" content="Banker" />
+		<meta property="og:description" content="Gestiona tus recolectores" />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content="./assets/opengraph.png" />
+		<link rel="icon" type="image/png" href="./assets/logo.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="./assets/logo.png" />
+		<link rel="stylesheet" href="./css/style.css" />
+
+		<link rel="manifest" href="./manifest.json" />
+		<meta name="theme-color" content="#0a0a0a" />
+
+		<title>Banker</title>
+	</head>
+	<body id="body">
+		<main class="banker-app">
+			<header class="user-greeting">
+				<h2 class="title-display">
+					Banker
+					<span class="banker-name">Panel Central</span>
+				</h2>
+				<div class="header-actions">
+					<button class="btn btn-import" id="btn-import">
+						<img
+							src="./assets/icons/file-arrow-down-fill.svg"
+							class="btn-icon"
+							alt=""
+						/>
+						Importar
+					</button>
+					<input type="file" id="import-json" hidden accept=".json" multiple />
+				</div>
+			</header>
+
+			<div class="summary-grid">
+				<div class="summary-card">
+					<p>Fijos</p>
+					<h3 id="grand-total-fixed">$0</h3>
+				</div>
+				<div class="summary-card">
+					<p>Corridos</p>
+					<h3 id="grand-total-running">$0</h3>
+				</div>
+				<div class="summary-card total-card">
+					<p>Balance Total</p>
+					<h3 id="grand-total-combined">$0</h3>
+				</div>
+			</div>
+
+			<div class="form-card form-card">
+				<div class="form-header">
+					<h4 class="form-section-title">Buscar ganadores</h4>
+				</div>
+				<div class="winner-controls">
+					<input
+						type="number"
+						id="winning-number"
+						placeholder="Nro."
+						class="form-input"
+						min="0"
+						max="99"
+					/>
+					<button class="btn btn-primary btn-main" id="btn-search-winners">
+						Buscar
+					</button>
+				</div>
+			</div>
+
+			<h2 class="section-label">Recolectores Activos</h2>
+			<div class="list-container" id="collectors-list">
+				<p class="empty-msg">No hay datos cargados aún.</p>
+			</div>
+
+			<div id="payout-panel" class="payout-section" style="display: none">
+				<h4 class="section-label">Premios a Pagar</h4>
+				<div class="list-container" id="payout-list"></div>
+			</div>
+
+			<button class="btn btn-clear" id="btn-clear">Limpiar datos</button>
+		</main>
+
+		<script src="js/main.js"></script>
+	</body>
+</html>
