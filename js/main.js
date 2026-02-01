@@ -104,7 +104,7 @@ function resetDisplayTotals() {
 }
 
 //	Functionality for btn-search-winners
-btnSearchWinners.addEventListener("click", () => {
+/* btnSearchWinners.addEventListener("click", () => {
 	const rawNum = winNumberInput.value.trim();
 	if (!rawNum) {
 		alert("Por favor, introduce el número ganador.");
@@ -113,6 +113,28 @@ btnSearchWinners.addEventListener("click", () => {
 
 	const formattedWinNum = rawNum.padStart(2, "0");
 	renderPayouts(formattedWinNum);
+}); */
+
+function populateWinningNumbers() {
+	const select = document.getElementById("winning-number");
+	for (let i = 0; i <= 99; i++) {
+		const num = i.toString().padStart(2, "0");
+		const option = document.createElement("option");
+		option.value = num;
+		option.textContent = num;
+		select.appendChild(option);
+	}
+}
+
+populateWinningNumbers();
+
+btnSearchWinners.addEventListener("click", () => {
+	const selectedNum = winNumberInput.value;
+	if (!selectedNum) {
+		alert("Por favor, selecciona el número ganador.");
+		return;
+	}
+	renderPayouts(selectedNum);
 });
 
 function renderPayouts(targetNum) {

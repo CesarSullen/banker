@@ -229,6 +229,9 @@ section {
   gap: 10px;
   margin-top: 15px;
 }
+.banker-app .form-card .winner-controls * {
+  height: 100%;
+}
 .banker-app .form-card .winner-controls .form-input {
   flex: 1;
   background: rgba(0, 0, 0, 0.3);
@@ -238,6 +241,13 @@ section {
   border-radius: 8px;
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.banker-app .form-card .winner-controls .native-selector {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  text-align: center;
+  text-align-last: center;
 }
 .banker-app .form-card .winner-controls .btn-main {
   flex: 2;

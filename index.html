@@ -56,14 +56,17 @@
 					<h4 class="form-section-title">Buscar ganadores</h4>
 				</div>
 				<div class="winner-controls">
-					<input
+					<!-- <input
 						type="number"
 						id="winning-number"
 						placeholder="Nro."
 						class="form-input"
 						min="0"
 						max="99"
-					/>
+					/> -->
+					<select id="winning-number" class="form-input native-selector">
+						<option value="" disabled selected>Nro.</option>
+					</select>
 					<button class="btn btn-primary btn-main" id="btn-search-winners">
 						Buscar
 					</button>
