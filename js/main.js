@@ -104,17 +104,6 @@ function resetDisplayTotals() {
 }
 
 //	Functionality for btn-search-winners
-/* btnSearchWinners.addEventListener("click", () => {
-	const rawNum = winNumberInput.value.trim();
-	if (!rawNum) {
-		alert("Por favor, introduce el número ganador.");
-		return;
-	}
-
-	const formattedWinNum = rawNum.padStart(2, "0");
-	renderPayouts(formattedWinNum);
-}); */
-
 function populateWinningNumbers() {
 	const select = document.getElementById("winning-number");
 	for (let i = 0; i <= 99; i++) {

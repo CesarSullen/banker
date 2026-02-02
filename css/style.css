@@ -229,9 +229,6 @@ section {
   gap: 10px;
   margin-top: 15px;
 }
-.banker-app .form-card .winner-controls * {
-  height: 100%;
-}
 .banker-app .form-card .winner-controls .form-input {
   flex: 1;
   background: rgba(0, 0, 0, 0.3);
