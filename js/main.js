@@ -60,17 +60,9 @@ function updateUI() {
 	}
 
 	allData.forEach((json) => {
-		let collectorFixed = 0;
-		let collectorRunning = 0;
-
-		json.data.forEach((group) => {
-			group.fixedBets.forEach(
-				(bet) => (collectorFixed += parseFloat(bet.amount) || 0)
-			);
-			group.runningBets.forEach(
-				(bet) => (collectorRunning += parseFloat(bet.amount) || 0)
-			);
-		});
+		const collectorFixed = parseCurrency(json.meta.totalFixed);
+		const collectorRunning = parseCurrency(json.meta.totalRunning);
+		const collectorTotal = parseCurrency(json.meta.totalAmount);
 
 		globalFixed += collectorFixed;
 		globalRunning += collectorRunning;
@@ -82,14 +74,11 @@ function updateUI() {
                 <strong>${json.meta.collector}</strong>
                 <span>${json.data.length} clientes registrados</span>
             </div>
-            <div class="amount-tag">$${(
-							collectorFixed + collectorRunning
-						).toLocaleString()}</div>
+            <div class="amount-tag">$${collectorTotal.toLocaleString()}</div>
         `;
 		collectorsList.appendChild(item);
 	});
 
-	//	Update Global Cards
 	grandTotalFixedEl.textContent = `$${globalFixed.toLocaleString()}`;
 	grandTotalRunningEl.textContent = `$${globalRunning.toLocaleString()}`;
 	grandTotalCombinedEl.textContent = `$${(
